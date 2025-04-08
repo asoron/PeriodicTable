@@ -1,0 +1,190 @@
+.periodic-table-container {
+  width: 100%;
+  overflow: visible;
+  margin-top: 10px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.periodic-table {
+  display: grid;
+  grid-template-columns: repeat(18, minmax(45px, 1fr));
+  grid-template-rows: repeat(7, auto);
+  grid-gap: 3px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.periodic-row {
+  display: flex;
+  justify-content: flex-start;
+  min-height: 74px; /* Boş satırlar için minimum yükseklik */
+}
+
+.element-cell {
+  width: 65px;
+  height: 65px;
+  margin: 3px;
+  position: relative;
+}
+
+/* Renk açıklamaları için stil */
+.periodic-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 4px 10px;
+}
+
+.legend-color {
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  margin-right: 6px;
+}
+
+.legend-text {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* Element grup renkleri */
+.legend-color.alkali { background-color: #FF9933; }
+.legend-color.alkaline { background-color: #CC9933; }
+.legend-color.halogen { background-color: #CCFF00; }
+.legend-color.noble-gas { background-color: #AD33FF; }
+.legend-color.nonmetal { background-color: #33CC33; }
+.legend-color.metalloid { background-color: #00CCFF; }
+.legend-color.transition-metal { background-color: #FF3366; }
+.legend-color.post-transition { background-color: #3399FF; }
+.legend-color.lanthanide { background-color: #FF33CC; }
+.legend-color.actinide { background-color: #CC33FF; }
+
+/* 7. ve 8. satır arasında boşluk */
+.periodic-row:nth-child(7) {
+  margin-bottom: 20px;
+}
+
+/* 9. ve 10. satır için üstte boşluk */
+.periodic-row:nth-child(9),
+.periodic-row:nth-child(10) {
+  margin-top: 5px;
+}
+
+.table-instructions {
+  margin-top: 5px;
+  font-style: italic;
+  opacity: 0.8;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* Mobil uyumluluk */
+@media (max-width: 1200px) {
+  .periodic-table-container {
+    padding: 10px;
+  }
+  
+  .periodic-legend {
+    padding: 10px;
+  }
+  
+  .legend-item {
+    margin: 3px 8px;
+  }
+}
+
+/* Periyodik tablodaki boşluklar için */
+.element-placeholder {
+  grid-column: span 1;
+}
+
+/* Lantanidler ve aktinidler için ayrı bölüm */
+.periodic-table-footer {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(15, minmax(45px, 1fr));
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 3px;
+  max-width: 100%;
+  margin: 10px auto 0;
+}
+
+/* Tablo elemanlarının ölçeklenmesini sağla */
+@media (min-width: 1200px) {
+  .periodic-table-container {
+    padding: 0;
+  }
+  
+  .periodic-table {
+    grid-template-columns: repeat(18, minmax(55px, 1fr));
+  }
+  
+  .periodic-table-footer {
+    grid-template-columns: repeat(15, minmax(55px, 1fr));
+  }
+}
+
+@media (min-width: 1400px) {
+  .periodic-table {
+    grid-template-columns: repeat(18, minmax(65px, 1fr));
+  }
+  
+  .periodic-table-footer {
+    grid-template-columns: repeat(15, minmax(65px, 1fr));
+  }
+}
+
+@media (max-width: 992px) {
+  .periodic-table {
+    grid-template-columns: repeat(18, minmax(38px, 1fr));
+  }
+  
+  .periodic-table-footer {
+    grid-template-columns: repeat(15, minmax(38px, 1fr));
+  }
+  
+  .legend-item {
+    margin: 3px 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .periodic-table-container {
+    padding: 0;
+  }
+  
+  .periodic-table {
+    grid-template-columns: repeat(18, minmax(30px, 1fr));
+    grid-gap: 2px;
+  }
+  
+  .periodic-table-footer {
+    grid-template-columns: repeat(15, minmax(30px, 1fr));
+    grid-gap: 2px;
+  }
+  
+  .periodic-legend {
+    padding: 8px;
+  }
+  
+  .legend-item {
+    margin: 2px 4px;
+  }
+  
+  .legend-text {
+    font-size: 10px;
+  }
+} 

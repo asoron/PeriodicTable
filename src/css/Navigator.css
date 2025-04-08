@@ -1,0 +1,24 @@
+.navigator {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.navigator div {
+    flex: 1;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+}
+
+.navigator a {
+    color: #38a2fe;
+    text-decoration: none;
+}
+
+.navigator img {
+    width: 50px;
+    height: 50px;
+}

@@ -1,0 +1,245 @@
+.element-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 4px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  aspect-ratio: 1 / 1; /* Kare şeklinde kalmasını sağlar */
+  width: 100%;
+  max-width: 70px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.element-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  z-index: 100;
+}
+
+.atomic-number {
+  font-size: 0.7rem;
+  align-self: flex-start;
+  opacity: 0.8;
+}
+
+.symbol {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 3px 0;
+}
+
+.name {
+  font-size: 0.65rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.atomic-weight {
+  font-size: 0.6rem;
+  opacity: 0.7;
+}
+
+@media (min-width: 1200px) {
+  .element-card {
+    max-width: 80px;
+  }
+  
+  .symbol {
+    font-size: 1.4rem;
+  }
+  
+  .name {
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .element-card {
+    max-width: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .element-card {
+    padding: 3px;
+    max-width: 50px;
+  }
+  
+  .atomic-number {
+    font-size: 0.6rem;
+  }
+  
+  .symbol {
+    font-size: 1rem;
+  }
+  
+  .name {
+    font-size: 0.55rem;
+  }
+  
+  .atomic-weight {
+    font-size: 0.5rem;
+  }
+}
+
+/* Element kategorilerine göre renkler (daha parlak renkler) */
+.alkali { background-color: #FF9933; color: #111; }
+.alkaline { background-color: #CC9933; color: #111; }
+.halogen { background-color: #CCFF00; color: #111; }
+.noble-gas { background-color: #AD33FF; color: white; }
+.nonmetal { background-color: #33CC33; color: #111; }
+.metalloid { background-color: #00CCFF; color: #111; }
+.transition-metal { background-color: #FF3366; color: white; }
+.post-transition { background-color: #3399FF; color: white; }
+.lanthanide { background-color: #FF33CC; color: white; }
+.actinide { background-color: #CC33FF; color: white; }
+.unknown { background-color: #CCCCCC; color: #111; }
+
+/* Parlaklık efekti - Kaldırıldı */
+
+/* Mevcut stillere ekle */
+.element-phase {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  font-size: 12px;
+  font-weight: bold;
+  opacity: 0.9;
+  z-index: 5;
+}
+
+/* Katı hal */
+.element-phase-solid {
+  border: 3px solid rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 0 8px 2px rgba(255, 255, 255, 0.4), 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.element-phase-solid .element-phase {
+  color: white;
+}
+
+/* Sıvı hal */
+.element-phase-liquid {
+  border: 3px solid rgba(0, 150, 255, 0.7);
+  box-shadow: inset 0 0 8px 2px rgba(0, 150, 255, 0.4), 0 0 5px rgba(0, 150, 255, 0.3);
+  background-image: linear-gradient(0deg, rgba(0, 120, 255, 0.2), transparent 60%);
+}
+
+.element-phase-liquid .element-phase {
+  color: rgb(0, 200, 255);
+}
+
+/* Gaz hal */
+.element-phase-gas {
+  border: 3px solid rgba(255, 100, 100, 0.7);
+  box-shadow: inset 0 0 8px 2px rgba(255, 100, 100, 0.4), 0 0 5px rgba(255, 100, 100, 0.3);
+  background-image: linear-gradient(0deg, rgba(255, 100, 100, 0.2), transparent 60%);
+}
+
+.element-phase-gas .element-phase {
+  color: rgb(255, 150, 150);
+}
+
+/* Fazlar için animasyon efektleri */
+.element-phase-liquid::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(0, 150, 255, 0.7), rgba(0, 100, 255, 0.2), rgba(0, 150, 255, 0.7));
+  animation: wave 3s infinite linear;
+  border-radius: 0 0 4px 4px;
+}
+
+.element-phase-gas::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(255, 100, 100, 0.7), rgba(255, 50, 50, 0.2), rgba(255, 100, 100, 0.7));
+  animation: wave 2s infinite linear;
+  border-radius: 4px 4px 0 0;
+}
+
+@keyframes wave {
+  0% { background-position: 0 0; }
+  100% { background-position: 50px 0; }
+}
+
+/* Seçili element stili */
+.element-card.selected {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7) !important;
+  z-index: 200;
+}
+
+/* Plazma fazı için stili düzenliyoruz - periyodik tablo boyutunu korumak için */
+.element-phase-plasma {
+  /* Kenarlık kalınlığını diğer fazlarla aynı yapıyoruz */
+  border: 3px solid rgba(255, 100, 255, 0.8);
+  /* Box-shadow değerini diğer fazlarla benzer tutuyoruz */
+  box-shadow: inset 0 0 8px 2px rgba(255, 100, 255, 0.4), 0 0 5px rgba(255, 100, 255, 0.3);
+  /* Background-image'i değiştirmiyoruz ama opacity'yi azaltıyoruz */
+  background-image: radial-gradient(
+    circle at center,
+    rgba(255, 200, 255, 0.3) 0%,
+    rgba(255, 50, 255, 0.15) 40%,
+    rgba(255, 0, 200, 0.05) 80%
+  );
+  /* Animation tutuyoruz ama daha hafif efektler kullanıyoruz */
+  animation: pulse-plasma 2s infinite alternate;
+  /* Tablo yapısını korumak için margin ve padding değişimlerini engelliyoruz */
+  margin: auto; /* Auto margin değerini koruyoruz */
+  padding: 5px; /* Diğer fazlarla aynı padding değerini koruyoruz */
+}
+
+/* Plazma fazı için daha hafif animasyon */
+@keyframes pulse-plasma {
+  0% { box-shadow: inset 0 0 8px 2px rgba(255, 100, 255, 0.4), 0 0 5px rgba(255, 100, 255, 0.3); }
+  100% { box-shadow: inset 0 0 8px 2px rgba(255, 100, 255, 0.5), 0 0 7px rgba(255, 100, 255, 0.4); }
+}
+
+/* Plazma simgesi için stil - element-phase sınıfını değiştirmeden */
+.element-phase-plasma .element-phase {
+  color: rgb(255, 150, 255);
+  text-shadow: 0 0 3px rgba(255, 100, 255, 0.7);
+  animation: glow-plasma 1.5s infinite alternate;
+  /* Pozisyon değerlerini diğer fazlarla aynı tutuyoruz */
+  top: 3px;
+  right: 3px;
+  font-size: 12px;
+}
+
+@keyframes glow-plasma {
+  0% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+/* Plazma fazında after pseudo-element ekliyoruz - diğer fazlarda olduğu gibi */
+.element-phase-plasma::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    rgba(255, 100, 255, 0.7), 
+    rgba(200, 100, 255, 0.2), 
+    rgba(255, 100, 255, 0.7)
+  );
+  animation: wave 2s infinite linear;
+  border-radius: 4px 4px 0 0;
+} 

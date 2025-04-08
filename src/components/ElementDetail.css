@@ -1,0 +1,193 @@
+/* Ortak stiller */
+.element-detail-popup, .element-detail-panel {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 450px;
+}
+
+/* Popup özgü stiller */
+.element-detail-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Panel (popup olmayan) özgü stiller */
+.element-detail-panel {
+  margin-top: 10px;
+}
+
+.element-header {
+  display: flex;
+  padding: 15px;
+  background: linear-gradient(135deg, #333 0%, #222 100%);
+}
+
+.element-symbol {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.element-basic-info {
+  text-align: left;
+}
+
+.element-basic-info h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
+}
+
+.element-basic-info p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.element-properties {
+  padding: 20px;
+}
+
+.element-properties h3 {
+  margin: 10px 0;
+  font-size: 1.3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 5px;
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.property {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.property-name {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.property-value {
+  font-size: 1.1rem;
+  color: white;
+}
+
+/* "Bilinmiyor" değerler için stil */
+.property-value:not([data-value="Bilinmiyor"]) {
+  font-style: normal;
+  color: white;
+}
+
+.property-value[data-value="Bilinmiyor"] {
+  font-style: italic;
+  color: #777;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.close-button:hover {
+  color: #ff6b6b;
+}
+
+.element-content {
+  padding: 15px;
+}
+
+@media (max-width: 768px) {
+  .property-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .element-symbol {
+    font-size: 3rem;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .element-basic-info h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Wikipedia bilgileri için stiller */
+.wikipedia-info {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wikipedia-thumbnail {
+  float: right;
+  max-width: 120px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.wikipedia-extract {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.wikipedia-link {
+  display: inline-block;
+  color: #3498db;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.wikipedia-link:hover {
+  text-decoration: underline;
+}
+
+.wikipedia-loading, .wikipedia-error {
+  font-style: italic;
+  opacity: 0.7;
+  padding: 15px 0;
+}
+
+/* Tarihsel bilgi ve izotoplar bölümü için stiller */
+.element-content h3 {
+  margin-top: 20px;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.2rem;
+  color: #3498db;
+} 

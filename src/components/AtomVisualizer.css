@@ -1,0 +1,113 @@
+.atom-visualizer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  margin: 20px 0;
+  max-width: 450px;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+.atom-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 0 15px 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  position: relative;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.atom-number {
+  font-size: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.atom-name {
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.atom-canvas-container {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 10px 0 20px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.atom-visualizer canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.atom-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
+  margin-top: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.atom-property {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.atom-property.electron-config {
+  grid-column: 1 / -1;
+  margin-top: 5px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.atom-property-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2px;
+}
+
+.atom-property-value {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+@media (max-width: 500px) {
+  .atom-visualizer {
+    padding: 15px;
+  }
+  
+  .atom-visualizer canvas {
+    width: 100%;
+    height: auto;
+  }
+  
+  .atom-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .atom-title {
+    font-size: 1.3rem;
+  }
+} 
